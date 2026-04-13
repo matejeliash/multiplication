@@ -1,11 +1,5 @@
 package dev.matejeliash.multiplication.helper;
 
-import dev.matejeliash.multiplication.exception.CLIArgException;
-import dev.matejeliash.multiplication. exception.CLIArgExceptionMessage;
-import dev.matejeliash.multiplication.exception.InvalidNumberException;
-
-import java.util.Set;
-
 // general static helper methods,
 public class Helper {
 
@@ -14,7 +8,7 @@ public class Helper {
         if (numStr == null || numStr.isEmpty()){
             return false;
         }
-                            // optional - and 1- inf digit
+        // optional - and more than 0 digits
         return numStr.matches("-?\\d+");
 
     }

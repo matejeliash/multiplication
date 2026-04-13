@@ -4,6 +4,7 @@ import dev.matejeliash.multiplication.exception.InvalidNumberException;
 
 import java.math.BigInteger;
 
+// multiplicator using BigInteger class
 public class MultiplicatorA extends AbstractMultiplicator {
 
 
@@ -11,10 +12,12 @@ public class MultiplicatorA extends AbstractMultiplicator {
         super(strNumA, strNumB);
     }
 
+    // use build in method
     @Override
     public String multiply(){
         BigInteger intA = new  BigInteger(strNumA);
         BigInteger intB = new  BigInteger(strNumB);
+
 
         return intA.multiply(intB).toString();
     }

@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class MultiplicatorB extends AbstractMultiplicator {
 
-    private int sign=1;
+    private int sign=1; // store sign for result
 
     public MultiplicatorB(String strNumA, String strNumB) throws InvalidNumberException {
         super(strNumA, strNumB);

@@ -3,17 +3,18 @@ package dev.matejeliash.multiplication;
 import dev.matejeliash.multiplication.cli.CLI;
 import dev.matejeliash.multiplication.exception.CLIArgException;
 import dev.matejeliash.multiplication.exception.InvalidNumberException;
-import dev.matejeliash.multiplication.multiplicator.MultiplicatorB;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+
+// tests of CLI app class testing
 public class CLIAppTests {
 
 
     @Test
-    public void testSimpleAppRun(){
+    public void testSimpleCorrectAppRun(){
 
         String[] args = {"--alg1","1","1"};
         CLI cli = new CLI(args);
@@ -24,12 +25,10 @@ public class CLIAppTests {
 
     @Test
     public void testAppRunIncorrectAlgo(){
-
         assertThrows(CLIArgException.class, ()->{
             String[] args = {"--alg3","1","1"};
-            CLI cli = new CLI(args);
+             new CLI(args);
         });
-
 
     }
 

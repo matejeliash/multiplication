@@ -16,23 +16,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MultiplicationTests {
 
+    // generate random number  with 24-34 digits
     public static String generateRandomNumStr(){
         Random random = new Random();
         // 24-34 length
         int len = random.nextInt(11) + 25;
 
+         // actual generation, generate ints and convert one by one to string
         return random.ints(len,0,10)
                 .mapToObj(String::valueOf)
-                .dropWhile( s -> s.equals("0"))
+                .dropWhile( s -> s.equals("0")) // remove 0 at the start
                 .reduce("", (res,s) -> (res + s));
-
-
-
-
     }
 
     @Test
-    // simple test to compare both Multiplicators
+    // simple test to compare both Multiplicator results
     public void testCompareMultiplicators(){
 
         String strNumA=generateRandomNumStr();
@@ -46,8 +44,8 @@ public class MultiplicationTests {
     }
 
     @Test
-    // test for one large number to negative
-    public void testCompareMultiplicatorsOneNegative(){
+    // test for two large numbers and one is negative
+    public void testCompareMultiplicatorsOneNegativeNumber(){
 
         String strNumA="-" + generateRandomNumStr();
         String strNumB=generateRandomNumStr();
@@ -69,7 +67,7 @@ public class MultiplicationTests {
 
 
     @Test
-    public void testSimpleEdgeCasesMultiplicationA(){
+    public void testEdgeCasesMultiplicationA(){
 
         String strNumA=  generateRandomNumStr();
 
@@ -90,7 +88,7 @@ public class MultiplicationTests {
 
     }
     @Test
-    public void testSimpleEdgeCasesMultiplicationB(){
+    public void testEdgeCasesMultiplicationB(){
 
         String strNumA= generateRandomNumStr();
 
@@ -111,43 +109,37 @@ public class MultiplicationTests {
 
     @Test
     // no need to test both Multiplicators, both use same constructor
-    public void testWrongNumbesrUsedToInitMultiplicator(){
+    public void testWrongNumbersUsedToInitMultiplicator(){
         assertThrows(InvalidNumberException.class, ()->{
              new MultiplicatorA(" "," ");
-
         });
         assertThrows(InvalidNumberException.class, ()->{
              new MultiplicatorA("","");
-
         });
         assertThrows(InvalidNumberException.class, ()->{
              new MultiplicatorA("123","");
-
         });
 
         assertThrows(InvalidNumberException.class, ()->{
             new MultiplicatorA("123","-");
-
         });
 
     }
 
 
+    // tests to create Multiplication object
     @Test
     public void testCorrectNumbersUsedToInitMultiplicator(){
         assertDoesNotThrow( ()->{
             new MultiplicatorB(generateRandomNumStr(),generateRandomNumStr());
-
         });
 
         assertDoesNotThrow( ()->{
             new MultiplicatorB("-1",generateRandomNumStr());
-
         });
 
         assertDoesNotThrow( ()->{
             new MultiplicatorB("0",generateRandomNumStr());
-
         });
     }
 

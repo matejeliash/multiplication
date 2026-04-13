@@ -4,7 +4,7 @@ import dev.matejeliash.multiplication.exception.InvalidNumberException;
 import dev.matejeliash.multiplication.helper.Helper;
 
 
-// general abstract multiplicator ,
+// general abstract multiplicator
 public abstract class AbstractMultiplicator {
     // numbers held as strings
     protected String strNumA;
